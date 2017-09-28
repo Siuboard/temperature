@@ -10,7 +10,7 @@ class Xml_File:
     if not os.path.exists(data_dir):
         os.mkdir(data_dir)
         
-    xml_file = os.path.join(base_path, 'data/day_b_day.xml')
+    xml_file = os.path.join(data_dir, 'day_b_day.xml')
 
     root = None
     tree = None

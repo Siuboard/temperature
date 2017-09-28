@@ -12,7 +12,7 @@ class Temperature:
         
         if not cls.minimal:
             xml_class.Xml_File.value_compare(temperature)
-            cls.minimal, cls.maximal = xml_class.Xml_File.minimal, xml_class.Xml_File.maximal
+            cls.minimal, cls.maximal = float(xml_class.Xml_File.minimal), float(xml_class.Xml_File.maximal)
             #xml_up.value_compare(temperature)
         elif temperature > cls.maximal:
             cls.maximal = temperature
