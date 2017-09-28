@@ -1,7 +1,6 @@
 import get_temperature
 import lcd_temp
-#import xml_up
-import xml_class
+from xml_class import Xml_File
 
 class Temperature:
     minimal, maximal = None, None
@@ -11,18 +10,17 @@ class Temperature:
         temperature = get_temperature.get_temp()
         
         if not cls.minimal:
-            xml_class.Xml_File.value_compare(temperature)
-            cls.minimal, cls.maximal = float(xml_class.Xml_File.minimal), float(xml_class.Xml_File.maximal)
-            #xml_up.value_compare(temperature)
+            Xml_File.value_compare(temperature)
+            cls.minimal, cls.maximal = float(Xml_File.minimal), float(Xml_File.maximal)
+
         elif temperature > cls.maximal:
             cls.maximal = temperature
-            xml_class.Xml_File.value_compare(temperature)
-            #xml_up.value_compare(temperature)
+            Xml_File.value_compare(temperature)
+
         elif temperature < cls.minimal:
             cls.minimal = temperature
-            xml_class.Xml_File.value_compare(temperature)
-            #xml_up.value_compare(temperature)
-            
+            Xml_File.value_compare(temperature)
+                    
         lcd_temp.lcd_temp(temperature)
 
 if __name__ == '__main__':
